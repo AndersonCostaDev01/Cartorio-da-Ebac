@@ -9,6 +9,7 @@ int registra()
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
+	int retornos = 0;
 	
 	printf("Qual o CPF sera cadastrado: ");
 	scanf("%s",cpf); // vai coletar o CPF e guardar na variavel cpf
@@ -53,7 +54,23 @@ int registra()
 	fprintf(file,cargo); // Escreve no arquivo o sobrenome 
 	fclose(file); // Fecha o arquivo
 	
-	system("pause");
+	printf("\n\nDeseja retornar para o menu?\n");
+	printf("\t1 para sim\n");
+	printf("\t2 para nao\n");
+	scanf("%d",&retornos); // coleta a informação se o usuario deseja retorna para o menu
+	
+	switch(retornos) // executa de acordo com a vontade do cliente o retorno para o menu ou iniciar novamente a função
+	{
+		case 1: //  retorna ao menu
+		main();
+		break;
+		
+		case 2: // limpa a tela e retorna para a funação
+		system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
+		registra();
+	}
+	
+	main();
 }
 int consultar()
 {
@@ -61,6 +78,7 @@ int consultar()
 	
 	char cpf[40]; // Cria o conjunto de variavel responsavel por guardar o cpf 
 	char conteudo[400]; // Cria o conjunto de variavel responsavel por guardar as informaço0es do cpf digitado
+	int retornos = 0; // Variavel para retorno ao menu
 	
 	printf("Qual o CPF sera consultado: ");
 	scanf("%s", cpf);
@@ -81,11 +99,28 @@ int consultar()
 		printf("\n\n");
 	}
 	
-	system("pause"); // Pausa o sistema 
+		printf("\n\nDeseja retornar para o menu?\n");
+	printf("\t1 para sim\n");
+	printf("\t2 para nao\n");
+	scanf("%d",&retornos); // coleta a informação se o usuario deseja retorna para o menu
+	
+	switch(retornos) // executa de acordo com a vontade do cliente o retorno para o menu ou iniciar novamente a função
+	{
+		case 1: //  retorna ao menu
+		main();
+		break;
+		
+		case 2: // limpa a tela e retorna para a funação
+		system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
+		consultar();
+	}
+	
+	
 }
 int deletar()
 {
 	char cpf[40]; // Cria o conjunto de variaveis que ira guardar o cpf
+	int retornos = 0; // Variavel para retorno no menu
 	
 	printf("Qual o CPF do usuario sera deletado: ");
 	scanf("%s",cpf);
@@ -100,7 +135,21 @@ int deletar()
 		printf("O usuario não existe mais em sistema\n\n");
 	}
 	
-	system("pause"); // Pausa o sistema 
+		printf("\n\nDeseja retornar para o menu?\n");
+	printf("\t1 para sim\n");
+	printf("\t2 para nao\n");
+	scanf("%d",&retornos); // coleta a informação se o usuario deseja retorna para o menu
+	
+	switch(retornos) // executa de acordo com a vontade do cliente o retorno para o menu ou iniciar novamente a função
+	{
+		case 1: //  retorna ao menu
+		main();
+		break;
+		
+		case 2: // limpa a tela e retorna para a funação
+		system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
+		deletar();
+	}
 }
 	
 int main()
@@ -119,6 +168,7 @@ int main()
 		printf("\t1 - Registrar Usuario\n");
 		printf("\t2 - Consultar Usuario\n");
 		printf("\t3 - Excluir Usuario\n\n");
+		printf("\t4 - Sair do sistema\n\n");
 		printf("Opção:");
 	
 		scanf("%d", &opcao); // Ira guarada a informação de qual menu voçe escolheu 
@@ -138,6 +188,11 @@ int main()
 			case 3: // faz a função caso a opção escolhida for a 3
 			deletar();
 			break;
+			
+			case 4:
+			printf("Obrigado por usar o cartorio da ebac\n");
+			printf("Projeto desenvolvido por Anderson Costa");
+			return 0;
 			
 			default: // caso uma opção inexistente seja selecionada 
 			printf("Essa opção não existe\n\n");
