@@ -156,49 +156,63 @@ int main()
 {
 	int opcao = 0;
 	int laco = 1;
+	char senha[10]="a";
+	int comparacao;
 	
-	for(laco=1;laco=1;)
+	printf("** Cartório da EBAC **\n\n"); // Apresenta o nome do projeto
+	printf("Login de administrador!\n\n\Digite sua senha: ");
+	scanf("%s",senha);
+	
+	comparacao = strcmp(senha, "admin");
+	
+	if(comparacao == 0)
 	{
-		system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
-		
-		setlocale(LC_ALL, "portuguese"); // Colocar em portugues o texto escrito
-	
-		printf("** Cartório da EBAC **\n\n"); // Apresenta o nome do projeto
-		printf("Qual a função desejada?\n\n"); // Solicita que o cliente escolha a oopção desejada que sera apresentada logo abaixo 
-		printf("\t1 - Registrar Usuario\n");
-		printf("\t2 - Consultar Usuario\n");
-		printf("\t3 - Excluir Usuario\n\n");
-		printf("\t4 - Sair do sistema\n\n");
-		printf("Opção:");
-	
-		scanf("%d", &opcao); // Ira guarada a informação de qual menu voçe escolheu 
-	
-		system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
-		
-		switch(opcao)
+		for(laco=1;laco=1;)
 		{
-			case 1: // faz a função caso a opção escolhida for a 1
-			registra();
-			break;
+			system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
 			
-			case 2: // faz a função caso a opção escolhida for a 2
-			consultar();
-			break;
+			setlocale(LC_ALL, "portuguese"); // Colocar em portugues o texto escrito
+	
+			printf("** Cartório da EBAC **\n\n"); // Apresenta o nome do projeto
+			printf("Qual a função desejada?\n\n"); // Solicita que o cliente escolha a oopção desejada que sera apresentada logo abaixo 
+			printf("\t1 - Registrar Usuario\n");
+			printf("\t2 - Consultar Usuario\n");
+			printf("\t3 - Excluir Usuario\n\n");
+			printf("\t4 - Sair do sistema\n\n");
+			printf("Opção:");
+		
+			scanf("%d", &opcao); // Ira guarada a informação de qual menu voçe escolheu 
+		
+			system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
+		
+			switch(opcao)
+			{
+				case 1: // faz a função caso a opção escolhida for a 1
+				registra();
+				break;
 			
-			case 3: // faz a função caso a opção escolhida for a 3
-			deletar();
-			break;
+				case 2: // faz a função caso a opção escolhida for a 2
+				consultar();
+				break;
 			
-			case 4:
-			printf("Obrigado por usar o cartorio da ebac\n");
-			printf("Projeto desenvolvido por Anderson Costa");
-			return 0;
+				case 3: // faz a função caso a opção escolhida for a 3
+				deletar();
+				break;
 			
-			default: // caso uma opção inexistente seja selecionada 
-			printf("Essa opção não existe\n\n");
-			system("pause");
-			break;
+				case 4:
+				printf("Obrigado por usar o cartorio da ebac\n");
+				printf("Projeto desenvolvido por Anderson Costa");
+				return 0;
+			
+				default: // caso uma opção inexistente seja selecionada 
+				printf("Essa opção não existe\n\n");
+				system("pause");
+				break;
+				
+				printf("Esse softare e de uso livre do aluno Anderson Costa\n\n"); // Creditos do projeto 
+			}
 		}
-		printf("Esse softare e de uso livre do aluno Anderson Costa\n\n"); // Creditos do projeto 
 	}
+	else
+			printf("Senha incorreta");
 }
