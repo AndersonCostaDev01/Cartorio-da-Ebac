@@ -59,7 +59,8 @@ int registra()
 	printf("\t2 para nao\n");
 	scanf("%d",&retornos); // coleta a informação se o usuario deseja retorna para o menu
 	
-	switch(retornos) // executa de acordo com a vontade do cliente o retorno para o menu ou iniciar novamente a função
+
+		switch(retornos) // executa de acordo com a vontade do cliente o retorno para o menu ou iniciar novamente a função
 	{
 		case 1: //  retorna ao menu
 		main();
@@ -68,10 +69,19 @@ int registra()
 		case 2: // limpa a tela e retorna para a funação
 		system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
 		registra();
-	}
 	
-	main();
+		default:
+		printf("Opção invalida, escolha 1 ou 2 para seguir");
+		system("pause");
+		system("cls");
+		printf("\n\nDeseja retornar para o menu?\n");
+		printf("\t1 para sim\n");
+		printf("\t2 para nao\n");
+		scanf("%d",&retornos); // coleta a informação se o usuario deseja retorna para o menu
+		break;
+	}
 }
+	
 int consultar()
 {
 	setlocale(LC_ALL, "portuguese"); // Colocar em portugues o texto escrito
@@ -113,6 +123,17 @@ int consultar()
 		case 2: // limpa a tela e retorna para a funação
 		system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
 		consultar();
+		break;
+		
+		default:
+		printf("Opção invalida, escolha 1 ou 2 para seguir");
+		system("pause");
+		system("cls");
+		printf("\n\nDeseja retornar para o menu?\n");
+		printf("\t1 para sim\n");
+		printf("\t2 para nao\n");
+		scanf("%d",&retornos); // coleta a informação se o usuario deseja retorna para o menu
+		break;
 	}
 	
 	
@@ -135,7 +156,7 @@ int deletar()
 		printf("O usuario não existe mais em sistema\n\n");
 	}
 	
-		printf("\n\nDeseja retornar para o menu?\n");
+	printf("\n\nDeseja retornar para o menu?\n");
 	printf("\t1 para sim\n");
 	printf("\t2 para nao\n");
 	scanf("%d",&retornos); // coleta a informação se o usuario deseja retorna para o menu
@@ -149,18 +170,32 @@ int deletar()
 		case 2: // limpa a tela e retorna para a funação
 		system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
 		deletar();
+		break;
+		
+		default:
+		printf("Opção invalida, escolha 1 ou 2 para seguir");
+		system("pause");
+		system("cls");
+		printf("\n\nDeseja retornar para o menu?\n");
+		printf("\t1 para sim\n");
+		printf("\t2 para nao\n");
+		scanf("%d",&retornos); // coleta a informação se o usuario deseja retorna para o menu
+		break;
+		
 	}
 }
 	
 int main()
 {
+	setlocale(LC_ALL, "portuguese"); // Colocar em portugues o texto escrito
 	int opcao = 0;
 	int laco = 1;
 	char senha[10]="a";
 	int comparacao;
 	
-	printf("** Cartório da EBAC **\n\n"); // Apresenta o nome do projeto
-	printf("Login de administrador!\n\n\Digite sua senha: ");
+	printf("\t\t Cartório da EBAC\n\n"); // Apresenta o nome do projeto
+	printf("Seja bem vindo a central de registro de alunos e colaboradores da ebac\n\n");
+	printf("Digite suas credencias de administrador: ");
 	scanf("%s",senha);
 	
 	comparacao = strcmp(senha, "admin");
@@ -170,14 +205,12 @@ int main()
 		for(laco=1;laco=1;)
 		{
 			system("cls"); //  Limpa a tela apos a escolha para evitar poluição visual 
-			
-			setlocale(LC_ALL, "portuguese"); // Colocar em portugues o texto escrito
 	
-			printf("** Cartório da EBAC **\n\n"); // Apresenta o nome do projeto
+			printf("\t\t Cartório da EBAC\n\n"); // Apresenta o nome do projeto
 			printf("Qual a função desejada?\n\n"); // Solicita que o cliente escolha a oopção desejada que sera apresentada logo abaixo 
 			printf("\t1 - Registrar Usuario\n");
 			printf("\t2 - Consultar Usuario\n");
-			printf("\t3 - Excluir Usuario\n\n");
+			printf("\t3 - Excluir Usuario\n");
 			printf("\t4 - Sair do sistema\n\n");
 			printf("Opção:");
 		
@@ -203,13 +236,13 @@ int main()
 				printf("Obrigado por usar o cartorio da ebac\n");
 				printf("Projeto desenvolvido por Anderson Costa");
 				return 0;
+				break;
 			
 				default: // caso uma opção inexistente seja selecionada 
 				printf("Essa opção não existe\n\n");
 				system("pause");
-				break;
-				
 				printf("Esse softare e de uso livre do aluno Anderson Costa\n\n"); // Creditos do projeto 
+				break;
 			}
 		}
 	}
